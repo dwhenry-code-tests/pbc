@@ -1,0 +1,25 @@
+module Private
+  class Locations
+    def initialize(country_code)
+      @locations = Location.
+        includes(:country).
+        where(countries: { country_code: country_code })
+    end
+
+    def as_json(opts=nil)
+      {
+        locations: locations
+      }
+    end
+
+    def locations
+      @locations.map do |location|
+        {
+          name: location.name,
+          external_id: location.external_id,
+          secret_code: location.secret_code
+        }
+      end
+    end
+  end
+end
