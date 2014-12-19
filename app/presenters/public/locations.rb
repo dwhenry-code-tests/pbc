@@ -1,5 +1,7 @@
 module Public
   class Locations < Shared::Locations
+    private
+
     def locations
       @locations.map do |location|
         {

@@ -2,10 +2,6 @@ def rand_country
   @countries[rand(@countries.size)]
 end
 
-def rand_panel_provider
-  @panel_providers[rand(@panel_providers.size)]
-end
-
 def build_tree(tree, opts={})
   if tree.is_a?(Hash)
     tree.each do |name, subtree|
@@ -24,14 +20,13 @@ def build_target_group(name, opts)
     parent: opts[:parent],
     secret_code: name,
     country: rand_country,
-    panel_provider: opts[:panel_provider] || rand_panel_provider
+    panel_provider: opts[:panel_provider]
   )
 end
 
 panel_provider_1 = PanelProvider.create!(code: 'alpha')
 panel_provider_2 = PanelProvider.create!(code: 'beta')
 panel_provider_3 = PanelProvider.create!(code: 'gamma')
-@panel_providers = [panel_provider_1, panel_provider_2, panel_provider_3]
 
 country_1 = Country.create!(country_code: 'AUS', panel_provider: panel_provider_1)
 country_2 = Country.create!(country_code: 'ENG', panel_provider: panel_provider_2)
@@ -67,4 +62,4 @@ LocationGroup.create(name: "Huge", country: rand_country, panel_provider: panel_
 build_tree({apple: {banana: {orange: :grape}}, strawberry: :plum}, panel_provider: panel_provider_1)
 build_tree({cat: {dog: {mouse: :girafe, hamster: nil}}}, panel_provider: panel_provider_2)
 build_tree({sea: {ocean: {puddle: {cannal: :dam}}}, river: {stream: {lake: :waterhole}}}, panel_provider: panel_provider_1)
-build_tree({one: {two: {three: {four: :five}}}})
+build_tree({one: {two: {three: {four: :five}}}}, panel_provider: panel_provider_2)

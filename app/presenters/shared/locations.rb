@@ -12,6 +12,8 @@ module Shared
       }
     end
 
+    private
+
     def locations
       raise 'Implement in subclass'
     end
