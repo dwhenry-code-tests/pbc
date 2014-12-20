@@ -61,5 +61,5 @@ LocationGroup.create(name: "Huge", country: rand_country, panel_provider: panel_
 
 build_tree({apple: {banana: {orange: :grape}}, strawberry: :plum}, panel_provider: panel_provider_1)
 build_tree({cat: {dog: {mouse: :girafe, hamster: nil}}}, panel_provider: panel_provider_2)
-build_tree({sea: {ocean: {puddle: {cannal: :dam}}}, river: {stream: {lake: :waterhole}}}, panel_provider: panel_provider_1)
+build_tree({sea: {ocean: {puddle: {cannal: :dam}}}, river: {stream: {lake: :waterhole}}}, panel_provider: panel_provider_3)
 build_tree({one: {two: {three: {four: :five}}}}, panel_provider: panel_provider_2)
